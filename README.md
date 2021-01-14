@@ -10,4 +10,4 @@ Tout d'abord il faut exécuter Programme_principal.py qui utlise les fichiers Au
 Cette exécution va créer 5 fichiers : corpus.csv, edges.csv, edges_sans_stopword.csv, nodes.csv et nodes_sans_stopword.csv.
 
 Puis il faut exécuter Application_dash.py qui a besoin de certains fichiers créés par Programme_principal.py. 
-Pour ouvrir l'application il faut se rendre sur la page Programme_principal.py
+Pour ouvrir l'application il faut se rendre sur la page http://127.0.0.1:8050/ .
