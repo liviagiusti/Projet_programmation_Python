@@ -16,7 +16,7 @@ import datetime as dt
 
 from Document import Document
 from Document import RedditDocument
-from Document import ArvicDocument
+from Document import ArxivDocument
 from Auteur import Auteur
 from Collection import Corpus
 
@@ -78,24 +78,24 @@ for post in host_post:
     id2doc[i] = titre
 
 #--------------------------------------------------------------------------------------------------
-#Importation des données ARVIC
+#Importation des données ARXIV
 #--------------------------------------------------------------------------------------------------
 
-#Récupération des documents ARVIC
+#Récupération des documents ARXIV
 url = 'http://export.arxiv.org/api/query?search_query=all:covid&start=0&max_results=5'
 data = urllib.request.urlopen(url).read().decode()
 
-#text_arvic est une liste de dictionnaires ordonnés
-text_arvic = xmltodict.parse(data)['feed']['entry']
+#text_arxiv est une liste de dictionnaires ordonnés
+text_arxiv = xmltodict.parse(data)['feed']['entry']
 
 #Intégration des informations des documents aux différents dictionnaires
-for post_arvic in text_arvic :
-    titre = post_arvic["title"]
-    texte = post_arvic["summary"]
+for post_arxiv in text_arxiv :
+    titre = post_arxiv["title"]
+    texte = post_arxiv["summary"]
     texte = texte.replace("\n", " ")
-    auteur = post_arvic["author"]
-    date = dt.datetime.strptime(post_arvic['published'], '%Y-%m-%dT%H:%M:%SZ')
-    url = post_arvic["id"]
+    auteur = post_arxiv["author"]
+    date = dt.datetime.strptime(post_arxiv['published'], '%Y-%m-%dT%H:%M:%SZ')
+    url = post_arxiv["id"]
     
     #Test si le type de la variable auteur est une liste
     nb_auteurs = 1
@@ -106,10 +106,10 @@ for post_arvic in text_arvic :
     
     #Intégration du document au corpus
     i = len(collection)
-    collection[i] = ArvicDocument(titre, texte, date, auteur1, nb_auteurs, url)
+    collection[i] = ArxivDocument(titre, texte, date, auteur1, nb_auteurs, url)
           
     #Intégration des auteurs au dictionnaire authors
-    liste_auteur = post_arvic["author"]
+    liste_auteur = post_arxiv["author"]
     for numaut in range(0,nb_auteurs):
         auteur = liste_auteur[numaut]
     
@@ -287,7 +287,7 @@ corpus.get_doc(0)
 print(corpus.get_doc(0))
 print(corpus.get_doc(5))
 
-#Affichage du type d'un document REDIT et d'un document ARVIC
+#Affichage du type d'un document REDIT et d'un document ARXIV
 corpus.get_doc(0).get_type()
 corpus.get_doc(5).get_type()
 
@@ -298,7 +298,7 @@ Document.nettoyer_texte(Document,phrase_a_nettoyer)
 #Affichage du nombre de commentaires d'un document REDIT
 corpus.get_doc(0).get_commentaire()
 
-#Affichage du nombre d'auteurs d'un document ARVIC
+#Affichage du nombre d'auteurs d'un document ARXIV
 corpus.get_doc(5).get_nb_auteurs()
 
 #--------------------------------------------------------------------------------------------------

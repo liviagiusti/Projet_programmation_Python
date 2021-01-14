@@ -98,14 +98,14 @@ class RedditDocument(Document):
         return Document.__str__(self) + " et il a " + str(self.get_commentaire()) + " commentaires."
 
 #--------------------------------------------------------------------------------------------------
-#Création de la classe ArvicDocument qui est une classe fille de la classe Document
+#Création de la classe ArxivDocument qui est une classe fille de la classe Document
 #--------------------------------------------------------------------------------------------------
      
-class ArvicDocument(Document):
+class ArxivDocument(Document):
     def __init__(self, titre, texte, date, auteur="inconnu", nb_auteurs=0, url="inconnu"):
         super().__init__(titre, texte, date, auteur, url)
         self.nb_auteurs = nb_auteurs
-        self.type = "arvic"
+        self.type = "arxiv"
         
     def get_nb_auteurs(self):
         return self.nb_auteurs
