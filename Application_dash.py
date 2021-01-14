@@ -42,16 +42,9 @@ NODE0 = pickle.load(open("nodes_sans_stopword.csv", 'rb'))
 #--------------------------------------------------------------------------------------------------
         
 NOMBRE= [min(EDGE0.loc[:,"nombre_lien"]), max(EDGE0.loc[:,"nombre_lien"])]
-print(NOMBRE)
-
 NOMBRE2 = [min(EDGE0.loc[:,"nombre_doc_commun"]), max(EDGE0.loc[:,"nombre_doc_commun"])]
-print(NOMBRE2) 
-
 NOMBRE3 = [min(NODE0.loc[:,"nombre_utilisation"]), max(NODE0.loc[:,"nombre_utilisation"])]
-print(NOMBRE3)
-
 NOMBRE4 = [min(NODE0.loc[:,"nombre_doc"]), max(NODE0.loc[:,"nombre_doc"])]
-print(NOMBRE4)
 
 ACCOUNT=""
 
