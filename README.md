@@ -1,7 +1,7 @@
 # Projet_programmation_Python
 
 Ce projet est composé de deux parties : 
-- La première est constituée principalement des différentes classes et méthodes codées lors des TD d'Algorithmique et programmation avancée.
+- La première est principalement constituée des différentes classes et méthodes codées lors des TD d'Algorithmique et programmation avancée.
 - La deuxième est l'application dash (notre projet).
 
 Pour installer les librairies nécessaires à l'exécution de nos programmes, un fichier de requirements est disponible.
