@@ -190,7 +190,7 @@ class Corpus :
             
         frequence_lien_mot = pandas.DataFrame(columns=['mot1', 'mot2', 'nombre_doc_commun', 'nombre_lien'])
 
-        num_doc=0
+        #num_doc=0
         
         #Pour chaque document
         for i in range (0,self.ndoc) :
@@ -205,12 +205,12 @@ class Corpus :
                 for v in range(0,titre_texte.count("")) :
                     titre_texte.remove("")
                     
-                print("document ",num_doc)
-                num_doc += 1
+                #print("document ",num_doc)
+                #num_doc += 1
                 
                 frequence_mot_doc = pandas.DataFrame(titre_texte)
                 frequence_mot_doc.columns = ['mot']
-                print("Nombre de mots du texte :",len(frequence_mot_doc))
+                #print("Nombre de mots du texte :",len(frequence_mot_doc))
                 
                 #Liste contenant tous les mots différents du document (sans les doublons)
                 liste_mot = set(titre_texte)
